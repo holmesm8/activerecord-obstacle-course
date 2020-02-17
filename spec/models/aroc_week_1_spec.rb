@@ -72,7 +72,9 @@ describe 'ActiveRecord Obstacle Course, Week 1' do
     # ------------------ Using ActiveRecord ----------------------
     # Solution goes here
     orders_of_500_and_700 = Order.where(amount: [500, 700])
+    # orders_of_500_and_700 = Order.where('amount == 500 AND amount == 700')
     orders_of_700_and_1000 = Order.where(amount: [700, 1000])
+    # orders_of_700_and_1000 = Order.where('amount == 700 AND amount == 1000')
     # ------------------------------------------------------------
 
     # Expectation
@@ -122,7 +124,8 @@ describe 'ActiveRecord Obstacle Course, Week 1' do
 
     # ------------------ Using ActiveRecord ----------------------
     # Solution goes here
-    orders_between_700_and_1000 = Order.where(amount: 700..1000)
+    # orders_between_700_and_1000 = Order.where(amount: 700..1000)
+    orders_between_700_and_1000 = Order.where('amount >= 700 AND amount <= 1000')
     # ------------------------------------------------------------
 
     # Expectation
@@ -138,7 +141,8 @@ describe 'ActiveRecord Obstacle Course, Week 1' do
 
     # ------------------ Using ActiveRecord ----------------------
     # Solution goes here
-    orders_less_than_550 = Order.where(amount: 0..549)
+    orders_less_than_550 = Order.where(amount: 0...550)
+    # orders_less_than_550 = Order.where('amount < 549')
     # ------------------------------------------------------------
 
     # Expectation
